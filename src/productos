@@ -1,0 +1,103 @@
+[
+	{
+		"title": "Crema Post Tatto",
+		"description": "Prueba",
+		"price": 1000,
+		"thumbnail": "Sin imagen",
+		"code": "crema",
+		"stock": 60,
+		"id": 1
+		
+	},
+	{
+		"title": "jabon post tattoo",
+		"description": "Prueba",
+		"price": 1000,
+		"thumbnail": "Sin imagen",
+		"code": "Jabon1",
+		"stock": 30,
+		"id": 2
+		
+	},
+	{
+		"title": "Ajuga R1",
+		"description": "Prueba",
+		"price": 3000,
+		"thumbnail": "Sin imagen",
+		"code": "R1",
+		"stock": 30,
+		"id": 3
+		
+	},
+	{
+		"title": "Aguja M1",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M1",
+		"stock": 60,
+		"id": 4
+		
+	},
+	{
+		"title": "Aguja M2",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M2",
+		"stock": 60,
+		"id": 5
+		
+	},
+	{
+		"title": "Aguja M3",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M3",
+		"stock": 60,
+		"id": 6
+		
+	},
+	{
+		"title": "Aguja M4",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M4",
+		"stock": 60,
+		"id": 7
+		
+	},
+	{
+		"title": "Aguja M5",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M5",
+		"stock": 60,
+		"id": 8
+		
+	},
+	{
+		"title": "Aguja M6",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M6",
+		"stock": 60,
+		"id": 9
+		
+	},
+	{
+		"title": "Aguja M7",
+		"description": "Este es un producto prueba",
+		"price": 2500,
+		"thumbnail": "Sin imagen",
+		"code": "M7",
+		"stock": 60,
+		"id": 10
+		
+	}
+
+]	
