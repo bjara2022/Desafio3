@@ -10,6 +10,7 @@ const render = async (data) => {
     <p> Precio: ${element.price}</p>
     <p> Codigo: ${element.code}</p>
     <p> Stock:${element.stock}</p>
+	<p> ID:${element.id}</p>
     ${element.thumbnail ? `<p> Imagen: ${element.thumbnail}</p>` : ''}
     `;
 		html.appendChild(elementHtml);

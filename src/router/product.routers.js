@@ -9,7 +9,7 @@ const   routerProduct = Router();
 routerProduct.post('/', async (req,res)=>{
 	const { title, description, price, thumbnail, code, stock } = req.body;
 	res.send(await productList.addProduct(title, description, price, thumbnail, code, stock));
-	console.log("Producto agregado");
+	//console.log("Producto agregado");
 	io.emit('product_list_updated', await productList.addProduct());
   })
   

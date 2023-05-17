@@ -5,6 +5,11 @@ export default class productManager {
     this.path = './src/models/productos.json';
     }
     #id = 0;
+    // Incremento mi variable privada en 1 cada vez que sumo un producto
+    #incrementId() {
+      this.#id++;
+      return this.#id;
+      }
     #readFile = async () => {
         const readProduct = await fs.promises.readFile(this.path, 'utf-8');
         return JSON.parse(readProduct);
@@ -23,6 +28,7 @@ export default class productManager {
           const validacion = products.find((product) => product.code === code);
           if (validacion) {
             console.log("El Code ya existe");
+          
             // creo el producto
           } else {
             const product = {
@@ -33,7 +39,7 @@ export default class productManager {
               code,
               stock,
             };
-            // agrego un campo a mi producto (ID) y luego incremeto con metodo privado de abajo
+            // agrego un campo a mi producto (ID) y luego incremeto con metodo privado
             product.id = this.#incrementId();
             // subo el producto al arreglo
             products.push(product);
@@ -42,14 +48,10 @@ export default class productManager {
             return products;
           }
         } else {
-          console.log("Faltan datos");
+          console.log("Faltan Campos");
         }
       };
-  // Incremento mi variable privada en 1 cada vez que sumo un producto
-    #incrementId() {
-    this.#id++;
-    return this.#id;
-    }
+  
   // Metodo para mostrar la listas de producto
   getProducts = async () => {
     const products = await this.#readFile();
