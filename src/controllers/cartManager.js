@@ -1,8 +1,5 @@
 import fs from 'fs';
-import ProductManager from './productManagerV3.js';
-//const productAll = new ProductManager;
-const productAll = new ProductManager ();
-
+import { productList } from '../utils/instances.js';
 export default class cartManager {
     constructor() {
         this.path = './src/carts.json';
@@ -56,7 +53,7 @@ getCartById = async (id) => {
       console.log('carrito no encontrado');
       return;
     }
-    let productById = await productAll.getProductById(productId);
+    let productById = await productList.getProductById(productId);
     if (!productById) {
       console.log('producto no encontrado');
       return;

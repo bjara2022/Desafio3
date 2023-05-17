@@ -1,0 +1,14 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+    background-color: rgb(8, 8, 8);
+}
+
+p, h1, h2, h3{
+    text-decoration: none;
+    color: beige;
+    text-align: center;
+
+}

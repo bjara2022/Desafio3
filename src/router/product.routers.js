@@ -1,14 +1,16 @@
 import {Router} from "express";
-import productManager from '../productManagerV3.js';
+import { productList } from '../utils/instances.js';
+import { io } from '../utils/socket.js';
 
 const   routerProduct = Router();
 //genero la nueva instancia de classe pero desde routers
-const productList = new productManager('./src/productos');
+
 
 routerProduct.post('/', async (req,res)=>{
 	const { title, description, price, thumbnail, code, stock } = req.body;
 	res.send(await productList.addProduct(title, description, price, thumbnail, code, stock));
 	console.log("Producto agregado");
+	io.emit('product_list_updated', await productList.addProduct());
   })
   
 //Obtengo el listado de productos (ya cargados para la pruebas)
@@ -40,16 +42,20 @@ routerProduct.get('/:pid', async (req, res) => {
       res.send("ID de producto no encontrado");
     }
   });
+
 routerProduct.delete ('/:id', async (req, res) => {
 	const id = parseInt(req.params.id);
 	const deletedProduct = await productList.deleteProduct(id);
   
 	if (deletedProduct) {
 	  res.send(deletedProduct);
+	  io.emit('product_list_updated', await productList.getProducts());
 	} else {
 	  res.status(404).send({ error: "ID de producto no encontrado" });
 	}
   });
+
+
 routerProduct.put('/:id', async (req, res) => {
 	const id = parseInt(req.params.id);
 	const newmodificate = req.body;

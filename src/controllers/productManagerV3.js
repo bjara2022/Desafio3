@@ -1,7 +1,8 @@
 import fs from 'fs';
+
 export default class productManager {
   constructor() {
-    this.path = './src/productos.json';
+    this.path = './src/models/productos.json';
     }
     #id = 0;
     #readFile = async () => {
