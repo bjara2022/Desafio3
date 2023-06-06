@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { productList } from '../utils/instances.js';
+import { productList } from '../../utils/instances.js';
 export default class cartManager {
     constructor() {
         this.path = './src/carts.json';
