@@ -2,7 +2,7 @@ import {Router} from "express";
 import { productsCart } from '../utils/instances.js';
 
 const routerCart = Router();
-//const productsCart = new cartManager ('./src/carts');
+
 
 routerCart.post ("/", async (req, res) =>{
     const { cid } = req.body;
