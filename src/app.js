@@ -38,9 +38,9 @@ app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter);
 app.use('/api/chat', messagesRouter);
 
-
-mongoose.connect(
-	'mongodb+srv://jarabarbaram:Movistar+01@coderclaster.oxbnspn.mongodb.net/?retryWrites=true&w=majority'
+const mongo = "mongodb+srv://jarabarbaram:Movistar+01@coderclaster.oxbnspn.mongodb.net/ecommerc"
+await mongoose.connect(
+	mongo
 );
 
 

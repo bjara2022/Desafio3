@@ -5,9 +5,16 @@ class ProductsService {
 		this.model = productModel;
 	}
 
-	async getAllProductsMdb() {
-		return await this.model.find();
+	async getAllProductsMdb (limit = 10, page = 1, category = false) {
+		var filter = {};
+
+		if (category) {
+			filter = { category };
+		}
+
+		return this.model.paginate(filter, { lean: true, page, limit});
 	}
+	
 
 	async addProductMdb(product) {
 		return await this.model.create(product);

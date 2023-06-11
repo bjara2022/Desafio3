@@ -2,15 +2,25 @@ import { Router } from 'express';
 import { productsService } from '../dao/products.service.js';
 
 
+
 const viewsRouter = Router();
 
 viewsRouter.get('/', async (req, res) => {
+	const { limit, page, category } = req.query;
+	const data = await productsService.getAllProductsMdb(
+		limit,
+		page,
+		category
+	);
+	data.category = category;
+	console.log(data)
+	res.render('prueba', data);
+});
+
+viewsRouter.get('/products', async (req, res) => {
 	try {
 		const productsMdb = await productsService.getAllProductsMdb();
-		res.render('products', {
-			title: 'Lista de Productos',
-			productsMdb: productsMdb,
-		});
+		res.render('prueba', productsMdb)
 	} catch (err) {
 		res.status(500).send({ err });
 	}

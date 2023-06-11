@@ -6,8 +6,39 @@ const productsRouter = Router();
 
 productsRouter.get('/', async (req, res) => {
 	try {
-		const products = await productsService.getAllProductsMdb();
-		res.send(products);
+		const {limit,page,sort,query} = req.query
+
+		//let limit = parseInt(req.query.limit) || 10;
+		//let page = parseInt(req.query.page) || 1;
+		//let sort = req.query.sort;
+		//let query = req.query.query;
+// Guardo lo filtrado
+		let filter = {};
+// Filtro para query		
+		if (query) {
+			filter.type = query;
+		}
+		const totalCount = await productsService.getProductCountMdb(filter);
+// Calculo para indexacion 
+		let startIndex = (page - 1) * limit;
+		let endIndex = page * limit;
+
+		const products = await productsService.getProductsMdb(filter, limit, startIndex);
+
+// Ordenar productos
+		if (sort) {
+			products.sort((a, b) => {
+				if (sort === 'asc') {
+					return a.price - b.price;
+				} else if (sort === 'desc') {
+					return b.price - a.price;
+				} else {
+					return 0;
+				}
+			});
+		}
+
+		res.send({ products, totalCount });
 	} catch (err) {
 		res.status(500).send({ err });
 	}
